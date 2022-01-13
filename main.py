@@ -17,7 +17,7 @@ def open_trade(ticker, decision):
     if ticker not in list_of_active:
         # get current ticker price
         # get api key from iexcloud.io
-        apikey = ""
+        apikey = "pk_d40b5f30ace045d9b25f7fc9cac8b0fd"
         headers = {'Content-Type': 'application/json'}
         url = f"https://cloud.iexapis.com/stable/stock/{ticker}/quote?token={apikey}"
         response = requests.get(url, headers=headers)
@@ -26,7 +26,8 @@ def open_trade(ticker, decision):
     # write trades to txt
         with open("output.txt", "a") as file:
             file.writelines(f"{ticker}, {decision}, {price} {datetime.now().hour}:{datetime.now().minute}.\n")
-    # returns global 'trades'
+
+    # generates global 'trades'
 
 def time_checker():
 
@@ -46,9 +47,7 @@ def time_checker():
     else:
         raise RuntimeError("Market not open at this time.")
 
-#########MAIN########
 # clear file on program start
-
 with open("output.txt", "w") as _:
     pass
 
@@ -62,10 +61,9 @@ while True:
         else:
             pass
     for combo in signals:
-        #print(f"Opening trade: {combo.get(list(combo.keys())[0])} {list(combo.keys())[0]}")
         open_trade(list(combo.keys())[0], combo.get(list(combo.keys())[0]))
 
-    #check_trades(trades)
+    print("Trades written to output.txt.")
     print("Waiting 5s.")
     sleep(5)
 

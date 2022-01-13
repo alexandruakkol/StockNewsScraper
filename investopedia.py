@@ -40,17 +40,15 @@ def investing_com_signal():
 
     # iterate through each title found
     for sentence in mydivs:
-        print(sentence)
+        print(f"Article: {sentence.string}")
         referred_stock = None
         referred_ticker = None
         decision = None
         for positive_combo, negative_combo in zip(positive_keywords, negative_keywords):
             if positive_combo.lower() in sentence.string.lower():
                 decision = "Buy"
-                #print(f"Recognized {decision} from title {sentence.string}, because of word: {positive_combo.lower()}")
             if negative_combo.lower() in sentence.string.lower():
                 decision = "Sell"
-                #print(f"Recognized {decision} from title {sentence.string}, because of word: {negative_combo.lower()}")
 
     # iterate through each word of each sentence
         for word in sentence.string.split():
@@ -58,12 +56,10 @@ def investing_com_signal():
             if word in tickers_only:
                 if word not in prohibited_tickers:
                     referred_ticker = word
-                    #print(f"Recognized {referred_ticker} from article: {sentence.string}, source: investopedia.")
                     break
 
             if word in set().union(*(d.keys() for d in stocks_ticker)) and word not in prohibited_words:
                 referred_stock = word
-                #print(f"Recognized {referred_ticker} from article: {sentence.string}, source: investopedia.")
                 break
 
         if decision is not None:
@@ -76,6 +72,5 @@ def investing_com_signal():
                 print(f"    Signal: {decision} {referred_ticker[0]} from", f"article: {sentence.string}. Source: investopedia")
                 signals.append({referred_ticker[0]:decision})
         pass
-    #print("investopedia:", signals)
 
     return signals

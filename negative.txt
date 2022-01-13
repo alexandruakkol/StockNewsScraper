@@ -71,3 +71,7 @@ bearish
 removed
 cautious
 defaults
+tanks
+postponed
+cancelled
+
