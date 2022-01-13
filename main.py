@@ -17,7 +17,7 @@ def open_trade(ticker, decision):
     if ticker not in list_of_active:
         # get current ticker price
         # get api key from iexcloud.io
-        apikey = "pk_d40b5f30ace045d9b25f7fc9cac8b0fd"
+        apikey = ""
         headers = {'Content-Type': 'application/json'}
         url = f"https://cloud.iexapis.com/stable/stock/{ticker}/quote?token={apikey}"
         response = requests.get(url, headers=headers)
