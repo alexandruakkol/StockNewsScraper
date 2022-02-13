@@ -1,1 +1,10 @@
--
+GBAB, Sell, 22.71 12:21, Disney Falls on Guggenheim Downgrade.
+BLW, Buy, 15.95 12:21, Citigroup Option Traders Show Increasing Bullishness.
+BAF, Sell, 14.1 12:21, BlackRock Underperforms Surging Financial Sector.
+WBA, Buy, 54.3 12:21, Walgreens Boots Alliance Option Traders See Upside.
+AAPL, Sell, 173.07 12:21, Apple Option Traders Bearish in the Near Term.
+FDX, Sell, 256.22 12:21, FedEx Option Traders Cautious Before Earnings.
+ADBE, Sell, 520.6 12:21, Adobe Option Traders Betting Bearishly.
+POST, Buy, 117.8 12:21, ETFs Post a Record $1 Trillion of Inflows in 2021.
+MSFT, Buy, 310.2 12:21, Microsoft Receives Cloud Revenue Boost From Pentagon.
+MODN, Buy, 27.87 12:21, Tesla Jumps as Musk Tweets About Model S Plaid in China.

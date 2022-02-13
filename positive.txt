@@ -71,8 +71,3 @@ record
 bullish
 jumps
 success
-inflows
-skyrockets
-skyrocket
-skyrocketing
-jumps

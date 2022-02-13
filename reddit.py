@@ -39,18 +39,21 @@ def reddit_signal():
         for positive_combo, negative_combo in zip(positive_keywords, negative_keywords):
             if positive_combo.lower() in sentence.string.lower():
                 decision = "Buy"
+                #print(f"Recognized {decision} from title {sentence.string}, because of word: {positive_combo.lower()}")
             if negative_combo.lower() in sentence.string.lower():
                 decision = "Sell"
+                #print(f"Recognized {decision} from title {sentence.string}, because of word: {negative_combo.lower()}")
 
     # iterate through each word of each sentence
         for word in sentence.string.split():
             news.append(word)
             if word in set().union(*(d.keys() for d in stocks_ticker)) and word not in prohibited_words:
                 referred_stock = word
+                #print(f"Recognized {referred_stock} from title {sentence.string}")
                 break
         if decision is not None and referred_stock is not None:
             referred_ticker = [pair.get(referred_stock) for pair in stocks_ticker if referred_stock in pair]
-            print(f"    Signal: {decision} {referred_ticker[0]} from", f"article: {sentence.string}. Source: reddit")
+            #print(f"    Signal: {decision} {referred_ticker[0]} from", f"article: {sentence.string}. Source: reddit")
             signals.append({referred_ticker[0]:decision})
 
         pass
