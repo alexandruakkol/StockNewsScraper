@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!--
+	Telephasic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Stock news web scraper</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="static/assets/css/main.css"/>
+</head>
+<body class="homepage is-preload">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header-wrapper" style="padding-bottom: 900px;">
+        <div id="header" class="container">
+
+            <!-- Logo -->
+            <h1 id="logo"><a href="/">Home</a></h1>
+        </div>
+
+        <!-- Hero -->
+        <section id="hero" class="container" style = "width: 1800px">
+            <header>
+								<h2>Stock news web scraper
+								<br />
+								 <a></a></h2>
+							</header>
+            <p>
+                Data pulled at {{ max(times) }}
+                {% for ticker, decision, time, price, sentence in zip(tickers, decisions, times, prices, sentences) %}
+            <li style="list-style: none; font-size: 28px; margin:20px; color:white; text-align: left;">
+                {{ decision }} {{ ticker }} "{{ sentence }}", current price ${{ price }}
+            </li>
+            {% endfor %}
+            </p>
+            <li style="list-style: none;"><a href="/realtime" class="button" style="padding: 12px 20px 12px 20px; margin-top: 50px;">Generate
+                in real-time<br>Will take longer</a></li>
+            </ul>
+        </section>
+
+    </div>
+
+
+    <!-- Footer -->
+    <div id="footer-wrapper">
+        <div id="footer" class="container">
+            <header class="major">
+                <h2></h2>
+                <p></p>
+            </header>
+            <div class="row">
+                <section class="col-6 col-12-narrower">
+                    <form method="post" action="#">
+                        <div class="row gtr-50">
+                            <div class="col-6 col-12-mobile">
+                                <input name="name" placeholder="Name" type="text"/>
+                            </div>
+                            <div class="col-6 col-12-mobile">
+                                <input name="email" placeholder="Email" type="text"/>
+                            </div>
+                            <div class="col-12">
+                                <textarea name="message" placeholder="Message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="submit" value="Send Message"/></li>
+                                    <li><input type="reset" value="Clear form"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                <section class="col-6 col-12-narrower">
+                    <div class="row gtr-0">
+                        <ul class="divided icons col-6 col-12-mobile">
+                            <li class="icon brands fa-twitter"><a href="#"><span class="extra">twitter.com/</span>untitled</a>
+                            </li>
+                            <li class="icon brands fa-facebook-f"><a href="#"><span class="extra">facebook.com/</span>untitled</a>
+                            </li>
+                            <li class="icon brands fa-dribbble"><a href="#"><span class="extra">dribbble.com/</span>untitled</a>
+                            </li>
+                        </ul>
+                        <ul class="divided icons col-6 col-12-mobile">
+                            <li class="icon brands fa-instagram"><a href="#"><span class="extra">instagram.com/</span>untitled</a>
+                            </li>
+                            <li class="icon brands fa-youtube"><a href="#"><span class="extra">youtube.com/</span>untitled</a>
+                            </li>
+                            <li class="icon brands fa-pinterest"><a href="#"><span class="extra">pinterest.com/</span>untitled</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div id="copyright" class="container">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/js/jquery.dropotron.min.js"></script>
+<script src="static/assets/js/browser.min.js"></script>
+<script src="static/assets/js/breakpoints.min.js"></script>
+<script src="static/assets/js/util.js"></script>
+<script src="static/assets/js/main.js"></script>
+
+</body>
+</html>
