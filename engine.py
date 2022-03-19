@@ -1,13 +1,15 @@
 import requests
 from datetime import datetime
-from reddit import reddit_signal
 from investopedia import investopedia_signal
 
 trades = []
-def run_engine():
+api_data = {}
 
+
+def run_engine():
     news = list()
-    out=[]
+    out = []
+
     def open_trade(ticker, decision, sentence):
         global trades
         list_of_active = [list(item.keys()) for item in trades]
@@ -24,11 +26,24 @@ def run_engine():
             if response.ok is False:
                 return None
             price = response.json()["latestPrice"]
-            trades.append({ticker:[decision, f"{datetime.now().hour}:{minute}", price, sentence]})
+            trades.append({ticker: [decision, f"{datetime.now().hour}:{minute}", price, sentence]})
         # returns global 'trades'
 
     signals = investopedia_signal()
 
     for combo in signals:
         open_trade(list(combo[0].keys())[0], list(combo[0].values())[0], combo[1])
-    return trades
+
+    for trade in trades:
+        symbol = list(trade.keys())[0]
+        array = list(trade.values())[0]
+        signal = array[0]
+        time = array[1]
+        price = array[2]
+        statement = array[3]
+        api_data[symbol] = {"signal": signal, "time": time, "price": price, "statement": statement}
+
+    return [trades, api_data]
+
+
+run_engine()
