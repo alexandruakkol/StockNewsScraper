@@ -3068,3 +3068,12 @@ input, select, textarea {
 			}
 
 	}
+
+	.hdr{
+	display:flex;
+
+	}
+	.headerComp{
+	flex:1;
+	}
+

@@ -5,10 +5,10 @@ from investopedia import investopedia_signal
 trades = []
 api_data = {}
 
-
 def run_engine():
     news = list()
     out = []
+    print("Running scraper ...")
 
     def open_trade(ticker, decision, sentence):
         global trades
@@ -45,5 +45,3 @@ def run_engine():
 
     return [trades, api_data]
 
-
-run_engine()
