@@ -8,6 +8,7 @@ app = Flask(__name__)
 opn = time_checker()
 
 engine = run_engine()
+print('1st run engine in app:',engine)
 
 @app.route("/")
 def home():
@@ -40,6 +41,7 @@ def realtime():
         times.append(list(combo.values())[0][1])
         prices.append(list(combo.values())[0][2])
         sentences.append(list(combo.values())[0][3])
+    print('realtime engine in app:',engine)
     return render_template('signal.html', max=max, zip=zip, tickers=tickers, decisions=decisions, times=times, prices=prices, sentences=sentences)
 
 #TODO make dict with classified vars

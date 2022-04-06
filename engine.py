@@ -6,16 +6,18 @@ trades = []
 api_data = {}
 
 def run_engine():
+    global trades
+    trades = []
     news = list()
     out = []
     print("Running scraper ...")
 
     def open_trade(ticker, decision, sentence):
         global trades
-        list_of_active = [list(item.keys()) for item in trades]
-        list_of_active = [item for sublist in list_of_active for item in sublist]
         now = datetime.now()
         minute = now.strftime("%M")
+        print(now)
+        list_of_active = []
         if ticker not in list_of_active:
             # get current ticker price
             # get api key from iexcloud.io
@@ -27,13 +29,13 @@ def run_engine():
                 return None
             price = response.json()["latestPrice"]
             trades.append({ticker: [decision, f"{datetime.now().hour}:{minute}", price, sentence]})
+            print('appended', {ticker: [decision, f"{datetime.now().hour}:{minute}", price, sentence]})
         # returns global 'trades'
 
     signals = investopedia_signal()
 
     for combo in signals:
         open_trade(list(combo[0].keys())[0], list(combo[0].values())[0], combo[1])
-
     for trade in trades:
         symbol = list(trade.keys())[0]
         array = list(trade.values())[0]
@@ -42,6 +44,5 @@ def run_engine():
         price = array[2]
         statement = array[3]
         api_data[symbol] = {"signal": signal, "time": time, "price": price, "statement": statement}
-
     return [trades, api_data]
 
