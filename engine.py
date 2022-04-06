@@ -8,15 +8,12 @@ api_data = {}
 def run_engine():
     global trades
     trades = []
-    news = list()
-    out = []
     print("Running scraper ...")
 
     def open_trade(ticker, decision, sentence):
         global trades
         now = datetime.now()
         minute = now.strftime("%M")
-        print(now)
         list_of_active = []
         if ticker not in list_of_active:
             # get current ticker price
@@ -29,7 +26,6 @@ def run_engine():
                 return None
             price = response.json()["latestPrice"]
             trades.append({ticker: [decision, f"{datetime.now().hour}:{minute}", price, sentence]})
-            print('appended', {ticker: [decision, f"{datetime.now().hour}:{minute}", price, sentence]})
         # returns global 'trades'
 
     signals = investopedia_signal()

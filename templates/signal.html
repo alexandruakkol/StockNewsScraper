@@ -35,7 +35,7 @@ const refreshApi = () => {
 								 <a></a></h2>
 							</header>
             <p>
-                Data pulled at {{ max(times) }}
+                Data pulled at {{ max(times) }} GMT
                 {% for ticker, decision, time, price, sentence in zip(tickers, decisions, times, prices, sentences) %}
             <li style="list-style: none; font-size: 28px; margin:20px; color:white; text-align: left;">
                 {{ decision }} {{ ticker }} "{{ sentence }}", current price ${{ price }}
