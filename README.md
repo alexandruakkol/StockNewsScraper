@@ -3,4 +3,5 @@ Generate Buy/Sell signals based on stock news on investopedia.com and reddit.com
 Run application.py
 <br>
 Deployment : http://flask-env.eba-mxf2n4br.eu-south-1.elasticbeanstalk.com/
+<br>
 Flask app deployed on AWS
